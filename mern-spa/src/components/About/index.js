@@ -6,7 +6,7 @@ function About() {
         <section id="about">
             <h1 className="h1 text-muted"> About Us!</h1>
             <div>
-                <img style = {{heigh: "500px", width: "500px"}}class="img-fluid img-thumbnail rounded" alt="about" src={photo} />
+                <img style = {{heigh: "500px", width: "500px"}}className="img-fluid img-thumbnail rounded" alt="about" src={photo} />
                 <p> Lorem Ipsem </p>
             </div>
         </section>
