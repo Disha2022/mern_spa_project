@@ -3,6 +3,7 @@ import React from 'react';
 import Nav from './components/Nav';
 import About from './components/About';
 import Contact from './components/Contact';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -10,12 +11,9 @@ function App() {
       <Nav></Nav>
       <main>
         <About></About>
-        "I'm Displaying!"
         <Contact></Contact>
       </main>
-      <footer className='border-top'>
-        <button> Donate Now!</button>
-      </footer>
+      <Footer></Footer>
     </div>
   );
 }

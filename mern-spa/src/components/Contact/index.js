@@ -3,7 +3,9 @@ import React from "react";
 function Contact () {
     return (
         <section>
+            <h2 className="fst-italic text-muted">Contact Us!</h2>
             <form className="mb-3 mx-5 border rounded bg-light">
+                
                 <div className="mx-3 mt-2">
                     <label className="form-label" htmlFor="name"> Name: </label>
                     <input className="form-control" name="name" type='text' placeholder="Name"></input>
