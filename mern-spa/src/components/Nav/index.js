@@ -12,6 +12,12 @@ function Nav(props) {
         setHomepageSelected
     } = props;
 
+    function renderHomepage () {
+        setLoginSelected(false)
+        setContactSelcted(false)
+        setAboutSelected(false)
+        setHomepageSelected(true)
+    }
     function renderLogin () {
         setLoginSelected(true)
         setContactSelcted(false)
@@ -35,10 +41,13 @@ function Nav(props) {
 
     return (
         <header className="bg-light border-bottom">
-            <h1> 
+            <h1 className="pt-2"> 
                 <a href="/" className="text-decoration-none text-muted">Workout App </a>
             </h1>
             <ul className="nav">
+                <li className="nav-item nav-link">
+                    <a href='#homepage' className="text-decoration-none text-muted" onClick={() => renderHomepage()}> HomePage </a>
+                </li>
                 <li className="nav-item nav-link">
                     <a href="#about" className="text-decoration-none text-muted" onClick={() => renderAbout()}> About </a>
                 </li>
