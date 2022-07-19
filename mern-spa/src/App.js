@@ -4,6 +4,7 @@ import Nav from './components/Nav';
 import About from './components/About';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import Login from './components/LogIn';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <main>
         <About></About>
         <Contact></Contact>
+        <Login></Login>
       </main>
       <Footer></Footer>
     </div>
