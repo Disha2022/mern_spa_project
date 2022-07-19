@@ -13,7 +13,7 @@ function App() {
         "I'm Displaying!"
         <Contact></Contact>
       </main>
-      <footer>
+      <footer className='border-top'>
         <button> Donate Now!</button>
       </footer>
     </div>
