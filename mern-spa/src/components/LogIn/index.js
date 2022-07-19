@@ -2,8 +2,8 @@ import React from "react";
 
 function Login() {
     return (
-        <section className="mx-5">
-            <form className="card my-3" id="login-form">
+        <section className="mx-5 row">
+            <form className="card my-3 col-5" id="login-form">
                 <h3 className="text-muted card-header">Login</h3>
                 <div className="my-2 mx-4">
                     <label htmlFor="login-email" className="form-label">Email:</label>
@@ -17,7 +17,8 @@ function Login() {
                     <button type="submit" className="btn btn-primary my-2" style={{width: "25%"}}> Login!</button>
                 </div>
             </form>
-            <form id="signup-form" className="card my-3">
+            <form className="col-2"></form>
+            <form id="signup-form" className="card my-3 col-5">
                 <h3 className="card-header">Sign-Up</h3>
                 <div className="my-2 mx-4">
                     <label htmlFor="signup-email" className="form-label"> Email:</label>
