@@ -7,25 +7,30 @@ function Nav(props) {
         setContactSelcted,
         contactSelected,
         aboutSelected,
-        setAboutSelected
+        setAboutSelected,
+        homepageSelected,
+        setHomepageSelected
     } = props;
 
     function renderLogin () {
         setLoginSelected(true)
         setContactSelcted(false)
         setAboutSelected(false)
+        setHomepageSelected(false)
     }
 
     function renderContact () {
         setLoginSelected(false)
         setContactSelcted(true)
         setAboutSelected(false)
+        setHomepageSelected(false)
     }
 
     function renderAbout() {
         setLoginSelected(false)
         setContactSelcted(false)
         setAboutSelected(true)
+        setHomepageSelected(false)
     }
 
     return (
