@@ -7,22 +7,23 @@ function Contact () {
     const {name, email, message} = formState;
     
     function handleChange(e) {
-        if(e.target.name === 'email'){
+        if (e.target.name === 'email') {
             const isValid = validateEmail(e.target.value);
-            console.log(isValid);
-    
-            if(!isValid){
-                setErrorMessage('Your email is invalid.')
+            if (!isValid) {
+                setErrorMessage('Your email is invalid.');
             } else {
-                if(!e.target.value.length){
-                    setErrorMessage(`${e.target.name} is required.`);
-                } else {
-                    setErrorMessage('');
-                }
+                setErrorMessage('');
             }
-            if(!errorMessage) {
-                setFormState({ ...formState, [e.target.name]: e.target.value})
+        } else {
+            if (!e.target.value.length) {
+                setErrorMessage(`A ${e.target.name} is required to contact us.`);
+            } else {
+                setErrorMessage('');
             }
+        }
+        if (!errorMessage) {
+            setFormState({ ...formState, [e.target.name]: e.target.value });
+            console.log('Handle Form', formState);
         }
     }
 

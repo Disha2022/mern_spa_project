@@ -42,7 +42,7 @@ function Nav(props) {
     return (
         <header className="bg-light border-bottom">
             <h1 className="pt-2"> 
-                <a href="/" className="text-decoration-none text-muted">Workout App </a>
+                <a href="/" className="text-decoration-none text-muted">Workout Tracker </a>
             </h1>
             <ul className="nav">
                 <li className="nav-item nav-link">
