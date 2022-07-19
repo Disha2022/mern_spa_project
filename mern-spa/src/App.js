@@ -7,21 +7,29 @@ import Footer from './components/Footer';
 import Login from './components/LogIn';
 
 function App() {
-
+  const[contactSelected, setContactSelcted] = useState(false)
   const [loginSelected, setLoginSelected] = useState(false)
   return (
     <div className="App">
       <Nav
-      setLoginSelected={setLoginSelected}
+        setLoginSelected={setLoginSelected}
+        setContactSelcted={setContactSelcted}
       ></Nav>
       <main>
-        {!loginSelected ? (
+        
+        {!loginSelected ?  (
           <>
             <About></About>
-            <Contact></Contact>
           </>
         ) : (
           <Login></Login>
+        )}
+
+        {!contactSelected ? (
+          <>
+          </>
+        ): (
+          <Contact></Contact>
         )}
       </main>
       <Footer></Footer>

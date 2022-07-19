@@ -3,8 +3,20 @@ import React from "react";
 function Nav(props) {
     const {
         setLoginSelected,
-        loginSelected
+        loginSelected,
+        setContactSelcted,
+        contactSelected,
     } = props;
+
+    function renderLogin () {
+        setLoginSelected(true)
+        setContactSelcted(false)
+    }
+
+    function renderContact () {
+        setLoginSelected(false)
+        setContactSelcted(true)
+    }
 
     return (
         <header className="bg-light border-bottom">
@@ -16,10 +28,10 @@ function Nav(props) {
                     <a href="#about" className="text-decoration-none text-muted" onClick={() => setLoginSelected(false)}> About </a>
                 </li>
                 <li className="nav-item nav-link" >
-                    <span onClick={() => setLoginSelected(false)} className="text-decoration-none text-muted"> Contact </span>
+                    <span onClick={() => renderContact()} className="text-decoration-none text-muted"> Contact </span>
                 </li>
                 <li className="nav-item nav-link" >
-                    <a onClick={() => setLoginSelected(true)} href="#login" className="text-decoration-none text-muted"> Login </a>
+                    <a onClick={() => renderLogin()} href="#login" className="text-decoration-none text-muted"> Login </a>
                 </li>
             </ul>
         </header>
