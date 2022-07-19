@@ -1,5 +1,5 @@
 import './App.css';
-import React from 'react';
+import React, { useState } from 'react';
 import Nav from './components/Nav';
 import About from './components/About';
 import Contact from './components/Contact';
@@ -7,13 +7,22 @@ import Footer from './components/Footer';
 import Login from './components/LogIn';
 
 function App() {
+
+  const [loginSelected, setLoginSelected] = useState(false)
   return (
     <div className="App">
-      <Nav></Nav>
+      <Nav
+      setLoginSelected={setLoginSelected}
+      ></Nav>
       <main>
-        <About></About>
-        <Contact></Contact>
-        <Login></Login>
+        {!loginSelected ? (
+          <>
+            <About></About>
+            <Contact></Contact>
+          </>
+        ) : (
+          <Login></Login>
+        )}
       </main>
       <Footer></Footer>
     </div>

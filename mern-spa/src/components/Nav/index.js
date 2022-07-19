@@ -1,6 +1,11 @@
 import React from "react";
 
-function Nav() {
+function Nav(props) {
+    const {
+        setLoginSelected,
+        loginSelected
+    } = props;
+
     return (
         <header className="bg-light border-bottom">
             <h1> 
@@ -8,13 +13,13 @@ function Nav() {
             </h1>
             <ul className="nav">
                 <li className="nav-item nav-link">
-                    <a href="#about" className="text-decoration-none text-muted"> About </a>
-                </li>
-                <li className="nav-item nav-link">
-                    <a href="#contact" className="text-decoration-none text-muted"> Contact </a>
+                    <a href="#about" className="text-decoration-none text-muted" onClick={() => setLoginSelected(false)}> About </a>
                 </li>
                 <li className="nav-item nav-link" >
-                    <a href="#login" className="text-decoration-none text-muted"> Login </a>
+                    <span onClick={() => setLoginSelected(false)} className="text-decoration-none text-muted"> Contact </span>
+                </li>
+                <li className="nav-item nav-link" >
+                    <a onClick={() => setLoginSelected(true)} href="#login" className="text-decoration-none text-muted"> Login </a>
                 </li>
             </ul>
         </header>
