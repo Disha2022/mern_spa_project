@@ -14,11 +14,13 @@
   "dependencies": {
     "apollo-server-express": "^3.6.1",
     "bcrypt": "^4.0.1",
+    "cors": "^2.8.5",
     "express": "^4.17.2",
     "faker": "^4.1.0",
     "graphql": "^16.2.0",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.0.0"
+    "mongoose": "^5.0.0",
+    "stripe": "^9.14.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.3"
