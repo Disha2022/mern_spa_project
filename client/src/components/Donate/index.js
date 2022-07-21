@@ -1,5 +1,3 @@
-
-
 // setting stripe payment method
 import {Elements} from '@stripe/react-stripe-js';
 import {loadStripe} from '@stripe/stripe-js';
@@ -11,11 +9,11 @@ const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
 
 export default function Donate() {
   const [secret, setSecret] = useState(false);
-  fetch('http://localhost:3001/secret').then(function(response) {
+  fetch('http://localhost:3000/secret').then(function(response) {
     return response.json();
   }).then(function(responseJson) {
     setSecret(responseJson.client_secret)
-   return responseJson.client_secret;
+    return responseJson.client_secret;
     // Call stripe.confirmCardPayment() with the client secret.
   });
   const options = {
