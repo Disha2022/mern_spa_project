@@ -23,17 +23,17 @@ db.once('open', async () => {
   // create workout sessions
   for (let i = 0; i < 100; i += 1) {
 
-    const exercise = {
-      muscle: faker.lorem.words(Math.round(Math.random() * 20) + 1),
-      name: faker.lorem.words(Math.round(Math.random() * 20) + 1),
+    const exercises = [{
+      muscle: faker.lorem.words(Math.round(Math.random() * 3) + 1),
+      name: faker.lorem.words(Math.round(Math.random() * 2) + 1),
       weight: Math.round(Math.random() * 300) + 1,
       reps: Math.round(Math.random() * 20) + 1,
       sets:Math.round(Math.random() * 5) + 1,
       duration: Math.round(Math.random() * 20) + 1
-    }
+    }]
     
     const day = new Date();
-    const workout = {day, exercise};
+    const workout = {day, exercises};
 
     const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
     const { username } = createdUsers.ops[randomUserIndex];
