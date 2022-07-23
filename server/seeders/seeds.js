@@ -7,7 +7,7 @@ db.once('open', async () => {
   await Workout.deleteMany({});
   await User.deleteMany({});
 
-  // create user data
+  // create workout users
   const userData = [];
 
   for (let i = 0; i < 50; i += 1) {
@@ -20,53 +20,32 @@ db.once('open', async () => {
 
   const createdUsers = await User.collection.insertMany(userData);
 
-  // create workout buddies/friend
+  // create workout sessions
   for (let i = 0; i < 100; i += 1) {
-    const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
-    const { _id: userId } = createdUsers.ops[randomUserIndex];
 
-    let friendId = userId;
-
-    while (friendId === userId) {
-      const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
-      friendId = createdUsers.ops[randomUserIndex];
+    const exercise = {
+      muscle: faker.lorem.words(Math.round(Math.random() * 20) + 1),
+      name: faker.lorem.words(Math.round(Math.random() * 20) + 1),
+      weight: Math.round(Math.random() * 300) + 1,
+      reps: Math.round(Math.random() * 20) + 1,
+      sets:Math.round(Math.random() * 5) + 1,
+      duration: Math.round(Math.random() * 20) + 1
     }
-
-    await User.updateOne({ _id: userId }, { $addToSet: { friends: friendId } });
-  }
-
-  // create workout session
-  let createdWorkout = [];
-  for (let i = 0; i < 100; i += 1) {
-    // const workoutText = faker.lorem.words(Math.round(Math.random() * 20) + 1);
-
-    // const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
-    // const { username, _id: userId } = createdUsers.ops[randomUserIndex];
-
-    // const createdThought = await Thought.create({ thoughtText, username });
-
-    // const updatedUser = await User.updateOne(
-    //   { _id: userId },
-    //   { $push: { thoughts: createdThought._id } }
-    // );
-
-    // createdThoughts.push(createdThought);
-  }
-
-  // create reactions
-  for (let i = 0; i < 100; i += 1) {
-    const reactionBody = faker.lorem.words(Math.round(Math.random() * 20) + 1);
+    
+    const day = new Date();
+    const workout = {day, exercise};
 
     const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
     const { username } = createdUsers.ops[randomUserIndex];
-
-    const randomThoughtIndex = Math.floor(Math.random() * createdThoughts.length);
-    const { _id: thoughtId } = createdThoughts[randomThoughtIndex];
-
-    await Thought.updateOne(
-      { _id: thoughtId },
-      { $push: { reactions: { reactionBody, username } } },
-      { runValidators: true }
+    workout.username = username;
+    const { _id } = await Workout.create(workout);
+    await User.findOneAndUpdate(
+      { username: username },
+      {
+        $addToSet: {
+          thoughts: _id,
+        },
+      }
     );
   }
 
