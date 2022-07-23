@@ -1,5 +1,4 @@
 const { Schema, model } = require('mongoose');
-const reactionSchema = require('./Reaction');
 const dateFormat = require('../utils/dateFormat');
 
 const WorkoutSchema = new Schema({
@@ -8,6 +7,10 @@ const WorkoutSchema = new Schema({
       default: Date.now,
       unique: true
     },
+    username: {
+        type: String,
+        required: true
+      },
   exercises: [
       {
           muscle: {
