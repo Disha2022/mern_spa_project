@@ -1,15 +1,17 @@
 import React from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 
-// import { useQuery, useMutation } from '@apollo/client';
-
-import Auth from '../utils/auth';
+import { useQuery } from '@apollo/client';
+import { QUERY_USER, QUERY_ME } from '../utils/queries';
+import Auth from '../utils/auth'
 
 const Profile = (props) => {
     const { username: userParam } = useParams();
 
     //controller please set this query up
-    // const { loading, data } = useQuery()
+    const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
+        variables: { username: userParam },
+      });
 
     const user = data?.me || data?.user || {};
 

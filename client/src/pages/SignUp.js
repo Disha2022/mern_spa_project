@@ -1,16 +1,14 @@
 import React, { useState } from 'react';
 
-/* whoever is dealing with controller aspect, please update
 import { useMutation } from '@apollo/client';
-import {ADD_USER} from '../utils/mutations'; */
+import { ADD_USER } from '../utils/mutations';
 
 import Auth from '../utils/auth';
 
 const Signup = () => {
     const [formState, setFormState] = useState({ username: '', email: '', password: '' })
 
-   //controller please attend to 
-    // const [addUser, {error}] = useMutation(ADD_USER);
+    const [addUser, { error }] = useMutation(ADD_USER);
 
     //updates state based on form input changes
     function handleChange(e) {
@@ -39,17 +37,15 @@ const Signup = () => {
         e.preventDefault();
 
         // try/catch statement
+        try {
+            const { data } = await addUser({
+                variables: { ...formState }
+            });
 
-        //once add_user query is made, please uncomment
-        // try {
-        //     const { data } = await addUser({
-        //         variables: { ...formState }
-        //     });
-
-        //     Auth.login(data.addUser.token);
-        // } catch (e) {
-        //     console.log(e);
-        // }
+            Auth.login(data.addUser.token);
+        } catch (e) {
+            console.log(e);
+        }
     };
 
     return (
@@ -79,3 +75,5 @@ const Signup = () => {
 
     )
 }
+
+// export default Signup;
