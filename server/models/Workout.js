@@ -5,7 +5,7 @@ const WorkoutSchema = new Schema({
     day: {
         type: Date,
         default: Date.now,
-        unique: true
+        get: timestamp => dateFormat(timestamp)
     },
     username: {
         type: String,
