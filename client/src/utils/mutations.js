@@ -25,15 +25,7 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_WORKOUT = gql`
-  input ExerciseInput {
-    muscle: String
-    name: String
-    weight: Int
-    reps: Int
-    sets: Int
-    duration: Int
-  }
-  mutation addWorkout($exercises: ExerciseInput!) {
+  mutation addWorkout($exercises: [ExerciseInput!]!) {
     addWorkout(exercises: $exercises) {
       _id
       exercises {
