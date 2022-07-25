@@ -7,6 +7,7 @@ import NoMatch from './pages/NoMatch';
 import Profile from './pages/Profile';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import Signup from './pages/SignUp';
 import './App.css';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
@@ -56,10 +57,10 @@ function App() {
                 path="/login"
                 element={<Login />}
               />
-              {/* <Route
+              <Route
               path="/signup"
               element={<Signup />}
-            /> */}
+            />
               <Route path="/profile">
                 <Route path=":username" element={<Profile />} />
                 <Route path="" element={<Profile />} />

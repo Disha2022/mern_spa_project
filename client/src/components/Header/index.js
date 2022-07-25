@@ -7,8 +7,8 @@ function Header() {
     return (
         <header className="bg-light border-bottom">
             <div>
-                <Link to='/'>
-                    <h1 className="pt-2 text-decoration-none text-muted">
+                <Link to='/' className="text-decoration-none ">
+                    <h1 className="pt-2 text-muted">
                         Workout Tracker
                     </h1>
                 </Link>
@@ -21,10 +21,10 @@ function Header() {
                                     Your Profile
                                 </li>
                             </Link>
-                            <Link to='/about'>
+                            <Link to='/about' className="nav-item nav-link">
                                 About
                             </Link>
-                            <Link to='/contact'>
+                            <Link to='/contact' className="nav-item nav-link">
                                 Contact
                             </Link>
                             <a href='/' className="nav-item nav-link">
@@ -33,10 +33,10 @@ function Header() {
                         </>
                     ) : (
                         <>
-                        <Link to='/about'> About </Link>
-                        <Link to='/contact'> Contact </Link>
-                        <Link to='/login'> Login </Link>
-                        <Link to='/signup'> SignUp</Link>
+                        <Link to='/about' className="nav-item nav-link"> About </Link>
+                        <Link to='/contact' className="nav-item nav-link"> Contact </Link>
+                        <Link to='/login' className="nav-item nav-link"> Login </Link>
+                        <Link to='/signup'className="nav-item nav-link"> SignUp</Link>
                         </>
                     )}
                 </ul>

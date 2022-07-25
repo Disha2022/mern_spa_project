@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
 
+import validateEmail from '../utils/helpers';
 import Auth from '../utils/auth';
 
 const Signup = () => {
     const [formState, setFormState] = useState({ username: '', email: '', password: '' })
-
+    const [errorMessage, setErrorMessage] = useState('');
     const [addUser, { error }] = useMutation(ADD_USER);
 
     //updates state based on form input changes
@@ -49,6 +49,7 @@ const Signup = () => {
     };
 
     return (
+
         <form id="signup-form" className="card my-3 col-5" onSubmit={handleSubmit}>
             <h3 className="card-header">Sign-Up</h3>
             <div className="my-2 mx-4">
@@ -76,4 +77,4 @@ const Signup = () => {
     )
 }
 
-// export default Signup;
+export default Signup;
