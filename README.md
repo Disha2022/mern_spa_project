@@ -1,14 +1,11 @@
 # Steps
 
-npm install 
+1) npm install
 
-npm run install 
-
-npm run develop
+2) npm run develop
 
 ## info
 
 mimics module 21.6 setup. 
 
 server should start on port 3001. react should start on 3000.
-
