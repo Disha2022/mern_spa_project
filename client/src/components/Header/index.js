@@ -27,7 +27,7 @@ function Header() {
                             <Link to='/contact' className="nav-item nav-link">
                                 Contact
                             </Link>
-                            <a href='/' className="nav-item nav-link">
+                            <a href='/' className="nav-item nav-link" onClick={Auth.logout}>
                                 Logout
                             </a>
                         </>
@@ -36,7 +36,7 @@ function Header() {
                         <Link to='/about' className="nav-item nav-link"> About </Link>
                         <Link to='/contact' className="nav-item nav-link"> Contact </Link>
                         <Link to='/login' className="nav-item nav-link"> Login </Link>
-                        <Link to='/signup'className="nav-item nav-link"> SignUp</Link>
+                        <Link to='/signup'className="nav-item nav-link"> SignUp </Link>
                         </>
                     )}
                 </ul>
