@@ -24,12 +24,12 @@ const WorkoutList = ({ workouts, title }) => {
             </p>
             <div className="card-body">
               <Link to={`/workout/${workout._id}`}>
-                <p>{workout.muscle} muscle worked out.</p>
-                <p>{workout.name} exercise.</p>
-                <p>{workout.weight} pounds.</p>
-                <p>{workout.reps} reps.</p>
-                <p>{workout.sets} sets.</p>
-                <p>{workout.duration} minutes.</p>
+                <p>{workout.exercises.muscle} muscle worked out.</p>
+                <p>{workout.exercises.name} exercises.</p>
+                <p>{workout.exercises.weight} pounds.</p>
+                <p>{workout.exercises.reps} reps.</p>
+                <p>{workout.exercises.sets} sets.</p>
+                <p>{workout.exercises.duration} minutes.</p>
               </Link>
             </div>
           </div>
