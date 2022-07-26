@@ -2,37 +2,37 @@ import React, { useState } from 'react';
 
 import { useMutation } from '@apollo/client';
 import { ADD_WORKOUT } from '../../utils/mutations';
-import { QUERY_WORKOUTS, QUERY_ME } from '../../utils/queries';
+// import { QUERY_WORKOUTS, QUERY_ME } from '../../utils/queries';
 
 const WorkoutForm = () => {
     const [formState, setFormState] = useState({
         muscle: '', name: '', weight: '', reps: '', sets: "", duration: ""
     })
     const [characterCount, setCharacterCount] = useState(0);
+    const [addWorkout, { error }] = useMutation(ADD_WORKOUT)
+    // const [addWorkout, { error }] = useMutation(ADD_WORKOUT, {
+    //     update(cache, { data: { addWorkout } }) {
 
-    const [addWorkout, { error }] = useMutation(ADD_WORKOUT, {
-        update(cache, { data: { addWorkout } }) {
+    //         // could potentially not exist yet, so wrap in a try/catch
+    //         try {
+    //             // update me array's cache
+    //             const { me } = cache.readQuery({ query: QUERY_ME });
+    //             cache.writeQuery({
+    //                 query: QUERY_ME,
+    //                 data: { me: { ...me, workouts: [...me.workouts, addWorkout] } },
+    //             });
+    //         } catch (e) {
+    //             console.warn("First workout insertion by user!")
+    //         }
 
-            // could potentially not exist yet, so wrap in a try/catch
-            try {
-                // update me array's cache
-                const { me } = cache.readQuery({ query: QUERY_ME });
-                cache.writeQuery({
-                    query: QUERY_ME,
-                    data: { me: { ...me, workouts: [...me.workouts, addWorkout] } },
-                });
-            } catch (e) {
-                console.warn("First workout insertion by user!")
-            }
-
-            // update workout array's cache
-            const { workouts } = cache.readQuery({ query: QUERY_WORKOUTS });
-            cache.writeQuery({
-                query: QUERY_WORKOUTS,
-                data: { workouts: [addWorkout, ...workouts] },
-            });
-        }
-    });
+    //         // update workout array's cache
+    //         const { workouts } = cache.readQuery({ query: QUERY_WORKOUTS });
+    //         cache.writeQuery({
+    //             query: QUERY_WORKOUTS,
+    //             data: { workouts: [addWorkout, ...workouts] },
+    //         });
+    //     }
+    // });
 
     // update state based on form input changes
     const handleChange = (e) => {
