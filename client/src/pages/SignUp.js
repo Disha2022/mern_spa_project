@@ -27,9 +27,9 @@ const Signup = () => {
             }
         }
         if (!errorMessage) {
-            setFormState({ ...formState, [e.target.name]: e.target.value });
             console.log('Handle Form', formState);
         }
+        setFormState({ ...formState, [e.target.name]: e.target.value });
     }
 
     //submitting form function
