@@ -1,7 +1,7 @@
 const express = require('express');
-const {ApolloServer} = require('apollo-server-express');
-const {typeDefs, resolvers} = require('./schemas');
-const {authMiddleware} = require('./utils/auth');
+const { ApolloServer } = require('apollo-server-express');
+const { typeDefs, resolvers } = require('./schemas');
+const { authMiddleware } = require('./utils/auth');
 const cors = require('cors');
 const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc')
 
@@ -21,13 +21,13 @@ app.use(express.json());
 app.use(cors())
 
 // Uncomment if need to serve up static assets
-// if (process.env.NODE_ENV === 'production') {
-//   app.use(express.static(path.join(__dirname, '../client/build')));
-// }
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../client/build')));
+}
 
-// app.get('*', (req, res) => {
-//   res.sendFile(path.join(__dirname, '../client/build/index.html'));
-// });
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/build/index.html'));
+});
 
 app.get('/secret', async (req, res) => {
   const paymentIntent = await stripe.paymentIntents.create({
@@ -35,7 +35,7 @@ app.get('/secret', async (req, res) => {
     currency: 'usd',
     payment_method_types: ['card'],
   });
-  res.json({client_secret: paymentIntent.client_secret});
+  res.json({ client_secret: paymentIntent.client_secret });
 });
 
 // Create a new instance of an Apollo server with the GraphQL schema
@@ -49,7 +49,7 @@ const startApolloServer = async (typeDefs, resolvers) => {
       console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
     })
   })
-  };
-  
-  // Call the async function to start the server
-  startApolloServer(typeDefs, resolvers);
+};
+
+// Call the async function to start the server
+startApolloServer(typeDefs, resolvers);
