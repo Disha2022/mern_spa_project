@@ -49,7 +49,9 @@ const WorkoutForm = () => {
         try {
             console.log({ ...formState })
             await addWorkout({
-                variables: { ...formState },
+                variables: {
+                    exercises: { ...formState }
+                },
             });
 
             // clear form value
