@@ -47,7 +47,6 @@ const WorkoutForm = () => {
         event.preventDefault();
 
         try {
-            console.log({ ...formState })
             await addWorkout({
                 variables: {
                     exercises: { ...formState }
@@ -77,7 +76,7 @@ const WorkoutForm = () => {
                 onSubmit={handleFormSubmit}
             >
                 <textarea
-                    placeholder="Here's a new workout..."
+                    placeholder="Exercise name"
                     value={formState.name}
                     name="name"
                     className="form-input col-12 col-md-9"
@@ -91,7 +90,7 @@ const WorkoutForm = () => {
                     onChange={handleChange}
                 ></textarea>
                 <textarea
-                    placeholder="weight used"
+                    placeholder="weight used (pounds)"
                     value={formState.weight}
                     name="weight"
                     className="form-input col-12 col-md-9"
@@ -112,7 +111,7 @@ const WorkoutForm = () => {
                     onChange={handleChange}
                 ></textarea>
                 <textarea
-                    placeholder="duration"
+                    placeholder="duration (in minutes)"
                     value={formState.duration}
                     name="duration"
                     className="form-input col-12 col-md-9"

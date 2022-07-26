@@ -16,7 +16,6 @@ const Profile = (props) => {
     });
 
     const user = data?.me || data?.user || {};
-
     //navigate to personal profile page if username is yours
     if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
         return <Navigate to='/profile/:username' />;
@@ -48,12 +47,10 @@ const Profile = (props) => {
 
             <div className="flex-row justify-space-between mb-3">
                 <div className="col-12 mb-3 col-lg-8">
-                    {userParam && (
-                        <WorkoutList
-                            workouts={user.workouts}
-                            title={`${user.username}'s workouts...`}
-                        />
-                    )}
+                    <WorkoutList
+                        workouts={user.workouts}
+                        title={`${user.username}'s workouts...`}
+                    />
                 </div>
             </div>
         </div>
