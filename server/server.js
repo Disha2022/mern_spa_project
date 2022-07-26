@@ -4,6 +4,7 @@ const { typeDefs, resolvers } = require('./schemas');
 const { authMiddleware } = require('./utils/auth');
 const cors = require('cors');
 const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc')
+const path = require('path');
 
 const db = require('./config/connection');
 
