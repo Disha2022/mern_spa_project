@@ -31,25 +31,25 @@ const typeDefs = gql`
   type Exercise {
     muscle: String
     name: String
-    weight: Int
-    reps: Int
-    sets: Int
-    duration: Int
+    weight: String
+    reps: String
+    sets: String
+    duration: String
   }
 
   input ExerciseInput {
     muscle: String
     name: String
-    weight: Int
-    reps: Int
-    sets: Int
-    duration: Int
+    weight: String
+    reps: String
+    sets: String
+    duration: String
   }
 
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    addWorkout(exercises: [ExerciseInput!]!): Workout
+    addWorkout(exercises: ExerciseInput!): Workout
   }
 `;
 
