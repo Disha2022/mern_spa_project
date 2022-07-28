@@ -45,19 +45,19 @@ const Login = (props) => {
     }
 
     return (
-        <section className="mx-5 row">
-            <form className="card my-3 col-5" id="login-form" onSubmit={handleSubmit}>
-                <h3 className="text-muted card-header">Login</h3>
-                <div className="my-2 mx-4">
+        <section className="">
+            <form className="card" id="login-form" onSubmit={handleSubmit}>
+                <h3 className="subheader card-divider">Login</h3>
+                <div className="card-section">
                     <label htmlFor="email" className="form-label">Email:</label>
                     <input name="email" onChange={handleChange} value={formState.email} className="form-control" type="email" placeholder="Email..."></input>
                 </div>
-                <div className="my-2 mx-4">
+                <div className="card-section">
                     <label htmlFor="password" className="form-label">Password:</label>
                     <input name="password" onChange={handleChange} value={formState.password} className="form-control" type="password" placeholder="Password..."></input>
                 </div>
-                <div>
-                    <button type="submit" className="btn btn-primary my-2" style={{ width: "25%" }}> Login!</button>
+                <div className="card-section">
+                    <button type="submit" className="button secondary" style={{ width: "25%" }}> Login!</button>
                 </div>
             </form>
 
