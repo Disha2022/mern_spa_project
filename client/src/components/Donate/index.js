@@ -10,7 +10,7 @@ const stripeKey = process.env.STRIPE_PK || "pk_test_TYooMQauvdEDq54NiTphI7jx"
 
 //setup payment method
 const stripePromise = loadStripe(stripeKey);
-const serverUrl = process.env.STRIPE ? 'https://mern-workout-tracker.herokuapp.com' : 'http://localhost:3001';
+const serverUrl = process.env.STRIPE_PK ? 'https://mern-workout-tracker.herokuapp.com' : 'http://localhost:3001';
 export default function Donate() {
   const [secret, setSecret] = useState(false);
   useEffect(() => {
