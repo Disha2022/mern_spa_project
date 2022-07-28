@@ -1,13 +1,15 @@
 import React from 'react';
 import { Navigate, useParams } from 'react-router-dom';
-
+import {capitalizeFirstLetter} from '../utils/helpers'
 import { useQuery } from '@apollo/client';
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
 import Auth from '../utils/auth'
 import WorkoutList from '../components/WorkoutList';
 import WorkoutForm from '../components/WorkoutForm';
 
+
 const Profile = (props) => {
+    
     const { username: userParam } = useParams();
 
     //controller please set this query up
@@ -33,11 +35,13 @@ const Profile = (props) => {
         );
     }
 
+    
+
     return (
         <div>
-            <div className="flex-row mb-3">
-                <h2 className="bg-dark text-secondary p-3 display-inline-block">
-                    Viewing {userParam ? `${user.username}'s` : 'your'} profile.
+            <div>
+                <h2 className="subheader">
+                    Viewing {userParam ? `${capitalizeFirstLetter(user.username)}'s` : 'your'} profile.
                 </h2>
                 {user.username && (
                     <WorkoutForm></WorkoutForm>
@@ -49,7 +53,7 @@ const Profile = (props) => {
                 <div className="col-12 mb-3 col-lg-8">
                     <WorkoutList
                         workouts={user.workouts}
-                        title={`${user.username}'s workouts...`}
+                        title={`${capitalizeFirstLetter(user.username)}'s workouts...`}
                     />
                 </div>
             </div>

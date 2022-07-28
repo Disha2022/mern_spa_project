@@ -71,7 +71,7 @@ const WorkoutForm = () => {
     };
 
     return (
-        <div>
+        <div className='card' style={{backgroundColor: "#e7ecef"}}>
             <p
                 className={`m-0 ${characterCount === 280 || error ? 'text-error' : ''}`}
             >
@@ -79,7 +79,6 @@ const WorkoutForm = () => {
                 {error && <span className="ml-2">Something went wrong...</span>}
             </p>
             <form
-                className="flex-row justify-center justify-space-between-md align-stretch"
                 onSubmit={handleFormSubmit}
             >
                 <textarea
@@ -97,34 +96,34 @@ const WorkoutForm = () => {
                     onChange={handleChange}
                 ></textarea>
                 <textarea
-                    placeholder="weight used (pounds)"
+                    placeholder="Weight used (lbs)"
                     value={formState.weight}
                     name="weight"
                     className="form-input col-12 col-md-9"
                     onChange={handleChange}
                 ></textarea>
                 <textarea
-                    placeholder="reps"
-                    value={formState.reps}
-                    name="reps"
-                    className="form-input col-12 col-md-9"
-                    onChange={handleChange}
-                ></textarea>
-                <textarea
-                    placeholder="sets"
+                    placeholder="Sets"
                     value={formState.sets}
                     name="sets"
                     className="form-input col-12 col-md-9"
                     onChange={handleChange}
                 ></textarea>
                 <textarea
-                    placeholder="duration (in minutes)"
+                    placeholder="Reps"
+                    value={formState.reps}
+                    name="reps"
+                    className="form-input col-12 col-md-9"
+                    onChange={handleChange}
+                ></textarea>
+                <textarea
+                    placeholder="Duration (min)"
                     value={formState.duration}
                     name="duration"
                     className="form-input col-12 col-md-9"
                     onChange={handleChange}
                 ></textarea>
-                <button className="btn col-12 col-md-3" type="submit">
+                <button className="button" type="submit">
                     Submit
                 </button>
             </form>

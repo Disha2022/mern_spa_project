@@ -5,38 +5,44 @@ import Auth from '../../utils/auth'
 function Header() {
 
     return (
-        <header className="bg-light border-bottom">
+        <header style={{ borderBottom: "1px dashed grey" }} >
             <div>
-                <Link to='/' className="text-decoration-none ">
-                    <h1 className="pt-2 text-muted">
-                        Workout Tracker
+                <Link to='/'>
+                    <h1>
+                        Get Fit!
                     </h1>
                 </Link>
 
-                <ul className="nav">
+                <ul className="menu align-center">
                     {Auth.loggedIn() ? (
                         <>
-                            <Link to='/profile'>
-                                <li className="nav-item nav-link">
+                            <li>
+                                <Link to='/profile'>
                                     Your Profile
-                                </li>
-                            </Link>
-                            <Link to='/about' className="nav-item nav-link">
-                                About
-                            </Link>
-                            <Link to='/contact' className="nav-item nav-link">
-                                Contact
-                            </Link>
-                            <a href='/' className="nav-item nav-link" onClick={Auth.logout}>
-                                Logout
-                            </a>
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to='/about' className="">
+                                    About
+                                </Link>
+                            </li>
+                            <li>
+                                <a href='/' className="" onClick={Auth.logout}>
+                                    Logout
+                                </a>
+                            </li>
                         </>
                     ) : (
                         <>
-                        <Link to='/about' className="nav-item nav-link"> About </Link>
-                        <Link to='/contact' className="nav-item nav-link"> Contact </Link>
-                        <Link to='/login' className="nav-item nav-link"> Login </Link>
-                        <Link to='/signup'className="nav-item nav-link"> SignUp </Link>
+                            <li>
+                                <Link to='/about' className=""> About </Link>
+                            </li>
+                            <li>
+                                <Link to='/login' className=""> Login </Link>
+                            </li>
+                            <li>
+                                <Link to='/signup' className=""> SignUp </Link>
+                            </li>
                         </>
                     )}
                 </ul>
