@@ -65,9 +65,9 @@ const Login = (props) => {
             {error && <div> Login Failed</div>}
 
             <div className="half">
-<img style = {{heigh: "500px", width: "500px"}}className="thumbnail" alt="about" src={photo} />
-<p style = {{display: "block"}}> More features coming soon! Get Fit with us....</p>
-</div>
+                <img style={{ heigh: "500px", width: "500px" }} className="thumbnail" alt="about" src={photo} />
+                <p style={{ display: "block" }}> More features coming soon! Get Fit with us....</p>
+            </div>
 
         </section>
     )
