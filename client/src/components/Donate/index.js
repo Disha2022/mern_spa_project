@@ -6,12 +6,14 @@ import { loadStripe } from '@stripe/stripe-js';
 import { PaymentElement, useElements, useStripe } from '@stripe/react-stripe-js'; //consider getting a key
 import { useState } from 'react';
 
-//setup payment method
-const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
+const stripeKey = process.env.STRIPE_PK || "pk_test_TYooMQauvdEDq54NiTphI7jx"
 
+//setup payment method
+const stripePromise = loadStripe(stripeKey);
+const serverUrl = process.env.STRIPE ? 'https://mern-workout-tracker.herokuapp.com' : 'http://localhost:3001';
 export default function Donate() {
   const [secret, setSecret] = useState(false);
-  fetch('http://localhost:3001/secret').then(function (response) {
+  fetch(serverUrl + "/secret").then(function (response) {
     return response.json();
   }).then(function (responseJson) {
     setSecret(responseJson.client_secret)

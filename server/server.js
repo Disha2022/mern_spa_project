@@ -3,7 +3,9 @@ const { ApolloServer } = require('apollo-server-express');
 const { typeDefs, resolvers } = require('./schemas');
 const { authMiddleware } = require('./utils/auth');
 const cors = require('cors');
-const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc')
+
+const stripeKey = process.env.STRIPE_SK || "sk_test_4eC39HqLyjWDarjtT1zdp7dc";
+const stripe = require('stripe')(stripeKey)
 const path = require('path');
 
 const db = require('./config/connection');
@@ -25,11 +27,6 @@ app.use(cors())
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../client/build')));
 }
-
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../client/build/index.html'));
-});
-
 app.get('/secret', async (req, res) => {
   const paymentIntent = await stripe.paymentIntents.create({
     amount: 1099,
@@ -38,6 +35,11 @@ app.get('/secret', async (req, res) => {
   });
   res.json({ client_secret: paymentIntent.client_secret });
 });
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/build/index.html'));
+});
+
+
 
 // Create a new instance of an Apollo server with the GraphQL schema
 const startApolloServer = async (typeDefs, resolvers) => {
