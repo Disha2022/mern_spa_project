@@ -4,7 +4,7 @@
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import { PaymentElement, useElements, useStripe } from '@stripe/react-stripe-js'; //consider getting a key
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const stripeKey = process.env.STRIPE_PK || "pk_test_TYooMQauvdEDq54NiTphI7jx"
 
@@ -13,13 +13,16 @@ const stripePromise = loadStripe(stripeKey);
 const serverUrl = process.env.STRIPE ? 'https://mern-workout-tracker.herokuapp.com' : 'http://localhost:3001';
 export default function Donate() {
   const [secret, setSecret] = useState(false);
-  fetch(serverUrl + "/secret").then(function (response) {
-    return response.json();
-  }).then(function (responseJson) {
-    setSecret(responseJson.client_secret)
-    return responseJson.client_secret;
-    // Call stripe.confirmCardPayment() with the client secret.
-  });
+  useEffect(() => {
+    fetch(serverUrl + "/secret").then(function (response) {
+      return response.json();
+    }).then(function (responseJson) {
+      setSecret(responseJson.client_secret)
+      return responseJson.client_secret;
+      // Call stripe.confirmCardPayment() with the client secret.
+    });
+  }, [])
+
   const options = {
     // passing the client secret obtained from the server
     clientSecret: secret,
