@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
+import photo from "../assets/signup.JPG"
 
 import {validateEmail} from '../utils/helpers';
 import Auth from '../utils/auth';
@@ -49,8 +50,9 @@ const Signup = () => {
     };
 
     return (
+<section className='page'>
 
-        <form id="signup-form" className="card" onSubmit={handleSubmit}>
+        <form id="signup-form" className="card half" onSubmit={handleSubmit}>
             <h3 className="subheader card-divider">Sign-Up</h3>
             <div className="card-section">
                 <label htmlFor="email" className="form-label"> Email:</label>
@@ -74,6 +76,11 @@ const Signup = () => {
             )}
         </form>
 
+<div className='half'>
+<img style = {{heigh: "500px", width: "500px"}}className="thumbnail" alt="about" src={photo} />
+<p style = {{display: "block"}}> Sign up with us today to Get Fit!</p>
+</div>
+</section>
     )
 }
 

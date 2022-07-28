@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Auth from '../utils/auth'
-
+import photo from "../assets/comingsoon.jpg"
 //whoever works on backend, uncommit or update these values
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
@@ -45,8 +45,8 @@ const Login = (props) => {
     }
 
     return (
-        <section className="">
-            <form className="card" id="login-form" onSubmit={handleSubmit}>
+        <section className="page">
+            <form className="card half" id="login-form" onSubmit={handleSubmit}>
                 <h3 className="subheader card-divider">Login</h3>
                 <div className="card-section">
                     <label htmlFor="email" className="form-label">Email:</label>
@@ -63,6 +63,12 @@ const Login = (props) => {
 
             {/* if there is an error, then display this div */}
             {error && <div> Login Failed</div>}
+
+            <div className="half">
+<img style = {{heigh: "500px", width: "500px"}}className="thumbnail" alt="about" src={photo} />
+<p style = {{display: "block"}}> More features coming soon! Get Fit with us....</p>
+</div>
+
         </section>
     )
 };

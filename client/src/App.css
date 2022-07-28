@@ -26,3 +26,9 @@ p {
   display: inline;
   margin-right: 5px;
 }
+
+.page {
+  display: flex;
+}
+
+.half {}
