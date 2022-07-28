@@ -29,7 +29,7 @@ function Footer() {
             <a href="https://github.com/DeanK24">
                 <img style={{width: "50px"}} src={github} alt="Dean's Github Link"></img>
             </a>
-            <a href="">
+            <a href="https://github.com/christianjF9">
                 <img style={{width: "50px"}} src={github} alt="Christian's Github Link"></img>
             </a>
         </footer>
