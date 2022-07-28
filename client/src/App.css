@@ -31,4 +31,22 @@ p {
   display: flex;
 }
 
-.half {}
+.menu li {
+  background-color: lightgray; /* Green */
+  border: 2px solid lightgray;
+  color: black;
+  padding: 2px 22px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-right: 1%;
+  border-radius: 12px;
+}
+a {color: black}
+
+.menu li:hover {
+  background-color: white; /* Green */
+  color: black;
+  border: 2px solid grey;
+}
